@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Gentium+Basic|Hammersmith+One');
+
+body {
+	background-color: #CCE6AF;
+	text-align: center;
+}
+
+.addBtn {
+/*    padding: 10px;
+    width: 5%;
+    background: #d9d9d9;
+    color: #555;
+    float: right;
+    text-align: center;
+    font-size: 10px;
+    cursor: pointer;
+    transition: 0.3s;*/
+    width: 40px;
+    padding: 4px;
+    background-color: #0283FF;
+    font-size: 16px;
+    color: white;
+    font-family: 'Gentium Basic', serif;
+}
+
+h1 {
+	color: blue;
+	font-size: 40px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-family: 'Hammersmith One', sans-serif;
+}
+
+#myInput {
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+.close {
+	margin-left: 7px;
+}
+
+li {
+	text-align: left;
+	margin-top: 10px;
+	margin-left: 400px;
+	font-family: 'Gentium Basic', serif;
+}
