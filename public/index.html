@@ -6,18 +6,28 @@
     <title>Todo List-LeylaMiyeon</title>
     <link rel="stylesheet" type="text/css" href="styles/reset.css">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
-    
+
 </head>
 
 <body>
-	<div id="myDIV">
-    	<h1> Todo List</h1>
-    	<input type="text" id="myInput" name="todo" placeholder="Write something!!!!">
-    	 <!-- <button id="button">OK</button> -->
-    	 <span onclick ="newElement()" class="addBtn">ENTER</span>
- 		</div>
-    	<ul id="myUL">
-  		</ul>
+
+
+  <div id="List">
+
+
+    <div class="todoClass">
+    <h1> Todo List </h1>
+
+    <!-- textbox -->
+    <input type= "Text" id="myInput" name="todo" placeholder="write something">
+
+<!-- okay button -->
+    <span onclick = "saveTodo()" class="addBtn">OK</span>
+  </div>
+</div>
+  <ul id="myUL"> </ul>
+
+
 
  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="script/script.js"></script>
