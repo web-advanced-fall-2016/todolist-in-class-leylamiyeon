@@ -1,19 +1,20 @@
-let url = "http://localhost:8000";
+let url = "http://localhost:3000";
 let addBtn = document.getElementById('addBtn');
 let list = document.getElementById('List');
 
+var i = 0;
+console.log("test1");
 
 window.onload=function(){
   $.ajax({
-    method:"GET",
-    url:url+'/todos'
+    url:url,
+    method:"GET"
   }).done(function(response){
-    console.log('response.length');
+    console.log('response work');
+    console.log(response.length);
 
     for(let i = 0; i < response.length; i++){
-			// var count = i;
-			console.log(response[i]);
-
+			var count = i;
 			var div = document.createElement('div');
 			div.className = "List";
 			div.id=i;
@@ -23,14 +24,13 @@ window.onload=function(){
 			description.innerHTML = response[i].description;
 
 			var addBtn = document.createElement('span');
-
     	addBtn.className = "todoclass";
 			addBtn.innerHTML = "X";
 
 			div.appendChild(description);
 			div.appendChild(addBtn);
-
 		}
+
 	})
 
 };
@@ -71,7 +71,7 @@ function sendTodo(data){
 }
 
 
-function sendTodo(){
+function saveTodo(){
 	// console.log("running");
 
 	var todoForm = document.getElementById("todoForm");
@@ -106,77 +106,17 @@ function sendTodo(){
 
 
 
-function deleteTodo(){
-	var deleteButton = document.querySelectorAll("deleteTodo");
-	console.log(deleteButton);
-}
-
-var button = document.querySelector("addBtn");
-
-button.addEventListener('click', function(e){
-		e.preventDefault();
-		// console.log("clicked");
-		// runs save task function if clicked
-		saveTodo();
-
-	});
-
-
-
-
-// var myNodelist = document.getElementsByTagName("LI");
-// var i;
-// for (i = 0; i < myNodelist.length; i++) {
-//   var span = document.createElement("SPAN");
-//   var txt = document.createTextNode("X");
-//   span.className = "close";
-//   span.appendChild(txt);
-//   myNodelist[i].appendChild(span);
+// function deleteTodo(){
+// 	var deleteButton = document.querySelectorAll("deleteTodo");
+// 	console.log(deleteButton);
 // }
 //
+// var button = document.querySelector("addBtn");
 //
-// var close = document.getElementsByClassName("close");
-// var i;
-// for (i = 0; i < close.length; i++) {
-//   close[i].onclick = function() {
-//     var div = this.parentElement;
-//     div.style.display = "none";
-//   }
-// }
+// button.addEventListener('click', function(e){
+// 		e.preventDefault();
+// 		// console.log("clicked");
+// 		// runs save task function if clicked
+// 		saveTodo();
 //
-//
-// var list2 = document.querySelector('ul');
-// list2.addEventListener('click', function(ev) {
-//   if (ev.target.tagName === 'LI') {
-//     ev.target.classList.toggle('checked');
-//   }
-// }, false);
-//
-//
-// function newElement() {
-//   var li = document.createElement("li");
-//   var inputValue = document.getElementById("myInput").value;
-//   var t = document.createTextNode(inputValue);
-//   li.appendChild(t);
-//   if (inputValue === '') {
-//     alert("You must write something!");
-//   } else {
-//     document.getElementById("myUL").appendChild(li);
-//   }
-//   document.getElementById("myInput").value = "";
-//
-//
-//   var span = document.createElement("SPAN");
-//   var txt = document.createTextNode("X");
-//   span.className = "close";
-//   span.appendChild(txt);
-//   li.appendChild(span);
-//
-//
-//   for (i = 0; i < close.length; i++) {
-//     close[i].onclick = function() {
-//       var div = this.parentElement;
-//       div.style.display = "none";
-//     }
-//   }
-// }
+// 	});

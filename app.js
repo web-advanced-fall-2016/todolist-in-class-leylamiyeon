@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
-const port = 8000;
+const port = 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -14,10 +14,10 @@ const db = require('./db.js');
 
 
 //----------------------- OUR CODE ------------------------
-
+//sending database dats to web
 app.get('/todos', function(req,res, next){
 	res.json(db.getTodoList);
-	let tasks=db.getTodoList();
+	let todos=db.getTodoList();
 	// res.send("hello");
 	next();
 	// res.send(req.query.id);
@@ -38,15 +38,6 @@ app.post('/todos', function(req,res, next){
 	console.log(todos);
 });
 
-//
-//
-// app.get('/*',function(req,res){
-// 	res.sendFile(__dirname + '/index.html');
-// });
-//
-//
-//
-//
 
 //----------------------------------
 const server = http.createServer(app);
