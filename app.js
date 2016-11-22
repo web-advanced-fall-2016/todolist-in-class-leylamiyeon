@@ -14,12 +14,20 @@ const db = require('./db.js');
 
 
 //----------------------- OUR CODE ------------------------
+app.use(function(req, res, next) {
+//this is an issue we need to fix
+  // req.db = {};
+  // req.db.tasks = db.collection('todos');
+  next();
+  console.log('Something is happening.');
+})
+
 //sending database dats to web
 app.get('/todos', function(req,res, next){
 	res.json(db.getTodoList);
-	let todos=db.getTodoList();
+	let todos = db.getTodoList();
 	// res.send("hello");
-	next();
+	// next();
 	// res.send(req.query.id);
 });
 
@@ -33,10 +41,11 @@ app.get('/todos/:todo_id', function(req,res,next){
 
 app.post('/todos', function(req,res, next){
 	db.getTodoList(req.body);
-	// console.log(req.body);
-	// todolist2.push(req.body);
-	console.log(todos);
+	console.log(req.body);
+	todolist.push(req.body);
+	// console.log(todos);
 });
+
 
 
 //----------------------------------
