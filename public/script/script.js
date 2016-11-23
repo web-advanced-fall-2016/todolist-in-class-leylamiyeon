@@ -7,17 +7,18 @@ console.log("test1");
 
 window.onload=function(){
   $.ajax({
-    url:url,
+    url:url + '/todos',
     method:"GET"
   }).done(function(response){
     console.log('response working');
-    console.log(response.length);
+
 
     for(let i = 0; i < response.length; i++){
 			var count = i;
+      console.log(response.length);
 			var div = document.createElement('div');
 			div.className = "List";
-			div.id = i;
+			// div.id = i;
 			list.appendChild(div);
 
 			var description = document.createElement('li');
@@ -62,23 +63,22 @@ function sendTodo(data){
             // res.json(res);
             console.log(res);
 
-            for (i = 0; i < res.length; i++) {
-                console.log(res[i]);
-                initialItems.push(res[i]);
-            }
-            saveTodo();
-            deleteTodo();
+            // for (i = 0; i < res.length; i++) {
+            //     console.log(res[i]);
+            //     todolist.push(res[i]);
+            // }
+            // saveTodo();
+            // deleteTodo();
         })
 
     .catch(function(err) {
         console.warn(`Couldn't fetch info list`);
-        console.log(err);
+        console.log("err");
     });
 }
 
 
 function saveTodo(){
-	// console.log("running");
 
 	var todoForm = document.getElementById("todoForm");
 	var submitButton = document.getElementById("newButton");
