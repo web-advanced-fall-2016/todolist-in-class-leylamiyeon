@@ -1,30 +1,17 @@
 # Session 11 / in class exercise
 
-### Setup
+# Leyla & Miyeon's todo list
 
-We are going to split into groups of two. Each team should collaborate to reach our goal. It's gonna be like the idea of [pair programming](https://en.wikipedia.org/wiki/Pair_programming). Engagement of both the students in coding is important. How to split the work is totally up to the teams (i.e. one person for front-end and the other for back-end). 
+1. clone or download the folder.
+2. Open termiinal, install npm and run the app.js (terminal- npm install / node app.js)
+3. if you see the console 'Server running and listening at http://localhost:3000/' ---- You are good to go.
+4. Open http://localhost:3000 
+5. You will see 3 todo list that is pre-written. You can add your own todo lists by writing in the textbox and hit OK button.
+6. Once you added more todo list, refresh the website to see the new list.
+7. (delete button) still working on it!!!!
 
-Start from planning. Before you jump into coding, take 5-10 minutes to define your approach and steps within your team. Maybe draw a simple sketch of your design. While one person is coding, the other team member is responsible to provoke ideas, make sure of code validity, recommend better ways of implementation or **most importantly ask questions if he/she doesn't understand something**.
 
-I will be roaming around between teams. You can ask me questions or Google them :). You **should** push your project to this repository before you leave the class.
 
-The base scaffold provided is nothing but the structure. Make your project as nice/functional as you can. But, **don't over complicate it**. Start with the minimal feasible goal and improve if you had time.
-
-This is an opportunity to teach and learn together. Let's make it fun and productive.
-
-Assignment link [https://classroom.github.com/group-assignment-invitations/acc7a44eff55799f00ac98333add33e6](https://classroom.github.com/group-assignment-invitations/acc7a44eff55799f00ac98333add33e6)
-
-### Goal
-
-Your goal is to build a very simple Todo list application. Here are some examples:
-
-[https://github.com/component/todo](https://github.com/component/todo)
-
-[http://dreamerslab.com/blog/en/write-a-todo-list-with-express-and-mongodb/](http://dreamerslab.com/blog/en/write-a-todo-list-with-express-and-mongodb/)
-
-Provided within this repository is a basic scaffold that includes an `express` application that runs a serve on `localhost:3000`. Run the server with: `npm start`. Build your application on tip of this scaffold.
-
-You are allowed to use third party libraries/tools like JQuery/Bootstrap.
 
 #### Required features
 
