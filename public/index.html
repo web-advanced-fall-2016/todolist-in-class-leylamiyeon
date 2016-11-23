@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <title>Todo List-LeylaMiyeon</title>
     <link rel="stylesheet" type="text/css" href="styles/reset.css">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
-
 <body>
 
+<!-- create div id for the whole body items.
+create another class called todoClasses to hold every item.
+create a header tag, textbox input and OK button. -->
 
   <div id="List">
-    <div class="todoClass">
+    <div class="todoClasses">
     <h1> Todo List </h1>
-    <!-- textbox -->
+
+<!-- textbox -->
     <input type= "Text" id="myInput" name="todo" placeholder="write something">
-<!-- okay button -->
+<!-- OK button -->
     <span onclick="saveTodo()" id="newButton" class="addBtn">OK</span>
   </div>
 </div>
-  <!-- <ul id="myUL"> </ul> -->
 
-
-
-
-    <script src="script/script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="script/script.js"></script>
 </body>
-
 </html>

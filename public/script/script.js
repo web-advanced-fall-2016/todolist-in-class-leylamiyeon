@@ -1,10 +1,11 @@
 let url = "http://localhost:3000";
-let addBtn = document.getElementById('addBtn');
 let list = document.getElementById('List');
-
+// let addBtn = document.getElementById('addBtn');
+var deleteButton;
 var i = 0;
 console.log("test1");
 
+//when the window is loaded, get the data from the server and show it
 window.onload=function(){
   $.ajax({
     url:url + '/todos',
@@ -12,6 +13,9 @@ window.onload=function(){
   }).done(function(response){
     console.log('response working');
 
+//this part allows to show all the description from the database on the website.
+//to do that, we need to get the length of response and create new div and span to hold the data.
+//and created a deletebutton next to the description.
 
     for(let i = 0; i < response.length; i++){
 			var count = i;
@@ -21,21 +25,19 @@ window.onload=function(){
 			// div.id = i;
 			list.appendChild(div);
 
-			var description = document.createElement('li');
+			var description = document.createElement('span');
 			description.innerHTML = response[i].description;
 
-			var addBtn = document.createElement('span');
-    		addBtn.className = "todoClass";
-			addBtn.innerHTML = "X";
-
+		  deleteButton = document.createElement('span');
+    	deleteButton.className = "todoClass";
+			deleteButton.innerHTML = "X";
 			div.appendChild(description);
-			div.appendChild(addBtn);
+			div.appendChild(deleteButton);
 		}
-
 	})
-
 };
-
+//---------work work ---------------------
+//Add an Item, Called on Clicking Add Button, Takes Input Value & ID object
 
 function sendTodo(data){
 	$.ajax({
@@ -59,69 +61,50 @@ function sendTodo(data){
                 throw new Error('Something went wrong on api server!');
         })
         .then(function(res) {
-            // console.log("The result is" + res);
-            // res.json(res);
-            console.log(res);
-
-            // for (i = 0; i < res.length; i++) {
-            //     console.log(res[i]);
-            //     todolist.push(res[i]);
-            // }
-            // saveTodo();
-            // deleteTodo();
+            console.log(res.length);
+            saveTodo();
+            deleteTodo();
         })
-
     .catch(function(err) {
         console.warn(`Couldn't fetch info list`);
         console.log("err");
     });
 }
 
+//saving inputs into description and add id to it
 
 function saveTodo(){
-
-	var todoForm = document.getElementById("todoForm");
-	var submitButton = document.getElementById("newButton");
-
-	submitButton.addEventListener('submit', function(evnt){
-		evnt.preventDefault();
-
-		var form = todoForm;
-
-	});
-
-
 	var todoInput = document.getElementById("myInput");
 	var todo = todoInput.value;
 
 	if(todo){
 		newTodo = { description: todo, id: i};
 		sendTodo(newTodo);
-
 	}
 
 	var todoDiv = document.createElement('div');
 	todoDiv.classList.add('todo');
 	console.log(todo);
-	todoDiv.innerHTML += `<p class='todoName'>${todo}</p><span class='deleteTodo'>x</span>`;
+	// todoDiv.innerHTML += `<li class='todoName'>${todo}</p><span class='deleteTodo'>x</span>`;
 
 	todoDiv.id = i++;
 	todoInput.appendChild(todoDiv);
 	todoInput.value = "";
 }
 
-
+//delete button
+//it's still not working but will figure out!!
 
 function deleteTodo(){
 	var deleteButton = document.querySelectorAll("deleteTodo");
-	console.log(deleteButton);
+	console.log("deleteButton");
 }
 
 var button = document.getElementById("newButton");
 
 button.addEventListener('click', function(e){
 		e.preventDefault();
-		console.log("clicked");
+		console.log("delete click");
 		// runs save task function if clicked
 		saveTodo();
 
