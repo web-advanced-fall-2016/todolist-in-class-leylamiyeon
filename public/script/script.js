@@ -2,6 +2,7 @@ let url = "http://localhost:3000";
 let list = document.getElementById('List');
 // let addBtn = document.getElementById('addBtn');
 var deleteButton;
+var updateList = [];
 var i = 0;
 console.log("test1");
 
@@ -85,26 +86,60 @@ function saveTodo(){
 	var todoDiv = document.createElement('div');
 	todoDiv.classList.add('todo');
 	console.log(todo);
+  	var inputValue = document.getElementById("myInput").value;
+ 	var t = document.createTextNode(inputValue);
+  	todoDiv.appendChild(t);
 	// todoDiv.innerHTML += `<li class='todoName'>${todo}</p><span class='deleteTodo'>x</span>`;
-
+  	document.getElementById("List").appendChild(todoDiv);
 	todoDiv.id = i++;
-	todoInput.appendChild(todoDiv);
+	// todoInput.appendChild(todoDiv);
 	todoInput.value = "";
+}
+
+
+function renewItem(data) {
+  updateList = data;
+  console.log(updateList);
+  console.log("new list refresh");
+  var List = document.querySelector('div');
+  List.innerHTML = "";
+    for (item of updatedList) {
+        List.innerHTML += "<div id=' " + item.id + "'>" + item.name + "</div>";
+    } 
+      // createCloseButton();
 }
 
 //delete button
 //it's still not working but will figure out!!
-
-function deleteTodo(){
-	var deleteButton = document.querySelectorAll("deleteTodo");
-	console.log("deleteButton");
+function deleteTodo(id) {
+ $.ajax({
+        type:"DELETE",
+        url: url + `/todos`,
+        data: {"id":id},
+        success: function(result){
+        	console.log("delete");
+        }
+    }).done(function(res){
+        console.log(id + " was sent to server");
+        var deleteButton = document.querySelectorAll("deleteTodo");
+		console.log("deleteButton");
+        renewItem(res);
+        
+});
 }
+
+
+
+// function deleteTodo(){
+// 	var deleteButton = document.querySelectorAll("deleteTodo");
+// 	console.log("deleteButton");
+// }
 
 var button = document.getElementById("newButton");
 
 button.addEventListener('click', function(e){
 		e.preventDefault();
-		console.log("delete click");
+		console.log("add to list");
 		// runs save task function if clicked
 		saveTodo();
 

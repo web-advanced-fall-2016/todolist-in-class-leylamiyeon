@@ -29,6 +29,11 @@ h1 {
 	font-size:15px;
 }
 
+.todo {
+	margin:2%;
+	font-size:20px;	
+}
+
 .todoClass{
 	color: black;
 	background-color: white;

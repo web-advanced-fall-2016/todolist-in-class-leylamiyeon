@@ -43,6 +43,22 @@ app.post('/todos', function(req,res, next){
 	todolist.push(req.body);
 });
 
+// /* Adding an item to the to do list */
+// app.post('/todo/add/', urlencodedParser, function(req, res) {
+//     if (req.body.newtodo != '') {
+//         req.session.todolist.push(req.body.newtodo);
+//     }
+//     res.redirect('/todo');
+// })
+
+// /* Deletes an item from the to do list */
+// app.get('/todo/delete/:id', function(req, res) {
+//     if (req.params.id != '') {
+//         req.session.todolist.splice(req.params.id, 1);
+//     }
+//     res.redirect('/todo');
+// })
+
 
 //----------------------------------
 const server = http.createServer(app);

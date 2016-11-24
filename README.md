@@ -1,13 +1,13 @@
 # Session 11 / in class exercise
 
-# Leyla & Miyeon's todo list
+# Leyla & Miyeon's Todo List
 
-1. clone or download the folder.
-2. Open termiinal, install npm and run the app.js (terminal- npm install / node app.js)
-3. if you see the console 'Server running and listening at http://localhost:3000/' ---- You are good to go.
-4. Open http://localhost:3000 
-5. You will see 3 todo list that is pre-written. You can add your own todo lists by writing in the textbox and hit OK button.
-6. Once you added more todo list, refresh the website to see the new list.
+1. Clone folder in terminal or download the folder.
+2. In terminal install node modules and run the app.js (terminal- npm install / node app.js)
+3. If you see the console 'Server running and listening at http://localhost:3000/' ---- You are good to go.
+4. Open http://localhost:3000 in browser, preferably Chrome.
+5. You will see 3 items in a todo list that is pre-written. You can add your own items to the list by writing in the textbox and hit OK button.
+6. Once you added more items, refresh the website to see the new list.
 7. (delete button) still working on it!!!!
 
 
