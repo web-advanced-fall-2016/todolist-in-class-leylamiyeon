@@ -10,7 +10,14 @@
 6. (delete button) still working on it!!!!
 
 
+#### API Endpoints
 
+| URL                | Description                           | structure | method |
+| ------------------ | ------------------------------------- | --------- | ------ |
+| `/todos`           | gets a list of all the existing tasks |           | GET    |
+| `/todos/:id`       |                                       |           | GET    |
+| `todos/delete/:id` |                                       |           | GET    |
+|                    |                                       |           |        |
 
 #### Required features
 
