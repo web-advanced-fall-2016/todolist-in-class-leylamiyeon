@@ -22,25 +22,36 @@ app.use(function(req, res, next) {
 
 //sending database datas to client side
 app.get('/todos', function(req,res, next){
-	res.json(db.getTodoList());
+
 	let todos = db.getTodoList();
-  next();
+  if(todos) {
+      res.json({code: 200, messsage: ' ', data: todos});
+  }else {
+    res.json({code: 100, messsage: ' ', data: {}});
+  }
+
 });
 
 //sending each ids of todo list.
 app.get('/todos/:todo_id', function(req,res,next){
 	let id=req.params.todo_id;
 	let todo = db.getTodo(id);
-	if(todo)
-	res.json(todo);
+	if(todo)   
+	 res.json(todo);
+
     // console.log(req.params.todo_id);
 });
 
 //getting a request and post the body
 app.post('/todos', function(req,res, next){
-	db.getTodoList(req.body);
-	console.log(req.body);
-	todolist.push(req.body);
+	let data = req.body;
+  console.log(data);
+  let result = db.addTodo(data.description);
+  if( result ) {
+      res.json({code: 200, message: 'Succesfully added new task', data: result})
+  }else {
+    res.json({code: 100, message: 'Couldnt add new item', data: {}});
+  }
 });
 
 // /* Adding an item to the to do list */
@@ -52,12 +63,12 @@ app.post('/todos', function(req,res, next){
 // })
 
 // /* Deletes an item from the to do list */
-// app.get('/todo/delete/:id', function(req, res) {
-//     if (req.params.id != '') {
-//         req.session.todolist.splice(req.params.id, 1);
-//     }
-//     res.redirect('/todo');
-// })
+ app.get('/todos/delete/:id', function(req, res) {
+    let id = req.params.id;
+    console.log('request for delete of item: '+ id);
+    res.json({message: 'jsut for now'});
+
+});
 
 
 //----------------------------------

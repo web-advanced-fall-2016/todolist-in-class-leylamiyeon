@@ -17,10 +17,16 @@ let db = {
 		return false;
 	},
 	addTodo: (todo) => {
-        todo.id = todo.length;
-        todos.push(item);//push the changes back to json file
-        db.updateList();//update list
-				console.log("addTodo");
+        let id = todos.length;
+				let newTask = {
+					id: id,
+					description:  todo
+				};
+
+        todos.push(newTask); //push the changes back to json file
+        //db.updateList();//update list
+				console.log(newTask);
+				return newTask;
     },
     // removeItem:(item) =>{
 
